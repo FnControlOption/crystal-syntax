@@ -1,0 +1,9 @@
+name: syntax
+version: 1.3.0-dev
+
+description: |
+  compiler/crystal/syntax but as a standalone module
+
+license: Apache-2.0
+
+crystal: "*"
