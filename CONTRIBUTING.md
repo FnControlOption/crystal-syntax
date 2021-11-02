@@ -1,5 +1,7 @@
 ## Applying a commit from crystal-lang/crystal
 
+Upstream commits that touch [`src/compiler/crystal/syntax`](https://github.com/crystal-lang/crystal/commits/master/src/compiler/crystal/syntax), [`spec/compiler/lexer`](https://github.com/crystal-lang/crystal/commits/master/spec/compiler/lexer), and/or [`spec/compiler/parser`](https://github.com/crystal-lang/crystal/commits/master/spec/compiler/parser) should be applied to crystal-syntax.
+
 1. Obtain the patch file by adding `.patch` to the end of the commit URL.
     - Example: https://github.com/crystal-lang/crystal/commit/ce7bbe1d92ec4a0b6917c4a742666c7974f0e875.patch
 
