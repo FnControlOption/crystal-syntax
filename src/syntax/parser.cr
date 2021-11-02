@@ -379,9 +379,9 @@ module Syntax
 
             atomic_value = with_isolated_var_scope(needs_new_scope) do
               if @token.keyword?(:uninitialized) && (
-                    atomic.is_a?(Var) || atomic.is_a?(InstanceVar) ||
-                    atomic.is_a?(ClassVar) || atomic.is_a?(Global)
-                  )
+                   atomic.is_a?(Var) || atomic.is_a?(InstanceVar) ||
+                   atomic.is_a?(ClassVar) || atomic.is_a?(Global)
+                 )
                 push_var atomic
                 next_token_skip_space
                 type = parse_bare_proc_type
@@ -406,7 +406,7 @@ module Syntax
             atomic
           end
         when :"+=", :"-=", :"*=", :"/=", :"//=", :"%=", :"|=", :"&=", :"^=", :"**=", :"<<=", :">>=",
-              :"||=", :"&&=", :"&+=", :"&-=", :"&*="
+             :"||=", :"&&=", :"&+=", :"&-=", :"&*="
           unexpected_token unless allow_ops
 
           break unless can_be_assigned?(atomic)
@@ -490,11 +490,11 @@ module Syntax
       next_token_skip_space
       check_void_expression_keyword
       right = if end_token? ||
-                  @token.type == :")" ||
-                  @token.type == :"," ||
-                  @token.type == :";" ||
-                  @token.type == :"=>" ||
-                  @token.type == :NEWLINE
+                 @token.type == :")" ||
+                 @token.type == :"," ||
+                 @token.type == :";" ||
+                 @token.type == :"=>" ||
+                 @token.type == :NEWLINE
                 Nop.new
               else
                 parse_or
@@ -664,11 +664,11 @@ module Syntax
             return parse_atomic_method_suffix(atomic, location)
           else
             name = case @token.type
-                    when :IDENT, :CONST
-                      @token.value.to_s
-                    else
-                      @token.type.to_s
-                    end
+                   when :IDENT, :CONST
+                     @token.value.to_s
+                   else
+                     @token.type.to_s
+                   end
             end_location = token_end_location
 
             @wants_regex = false
@@ -2717,14 +2717,14 @@ module Syntax
         return
       when Call
         if exp.obj.is_a?(ImplicitObj) && exp.name.ends_with?('?') &&
-            exp.args.empty? && !exp.named_args &&
-            !exp.block
+           exp.args.empty? && !exp.named_args &&
+           !exp.block
           return
         end
 
         if (exp.obj.is_a?(Path) || exp.obj.is_a?(Generic)) && exp.name == "class" &&
-            exp.args.empty? && !exp.named_args &&
-            !exp.block
+           exp.args.empty? && !exp.named_args &&
+           !exp.block
           return
         end
       end
@@ -2750,7 +2750,7 @@ module Syntax
     def when_exp_constant?(exp)
       case exp
       when NilLiteral, BoolLiteral, CharLiteral, NumberLiteral,
-            StringLiteral, SymbolLiteral, Path
+           StringLiteral, SymbolLiteral, Path
         true
       when ArrayLiteral
         exp.elements.all? { |e| when_exp_constant?(e) }
@@ -3925,11 +3925,11 @@ module Syntax
         # We cannot assign value into them and never reference them,
         # so they are invalid internal name.
         when :begin, :nil, :true, :false, :yield, :with, :abstract,
-              :def, :macro, :require, :case, :select, :if, :unless, :include,
-              :extend, :class, :struct, :module, :enum, :while, :until, :return,
-              :next, :break, :lib, :fun, :alias, :pointerof, :sizeof, :offsetof,
-              :instance_sizeof, :typeof, :private, :protected, :asm, :out,
-              :self, :in, :end
+             :def, :macro, :require, :case, :select, :if, :unless, :include,
+             :extend, :class, :struct, :module, :enum, :while, :until, :return,
+             :next, :break, :lib, :fun, :alias, :pointerof, :sizeof, :offsetof,
+             :instance_sizeof, :typeof, :private, :protected, :asm, :out,
+             :self, :in, :end
           true
         else
           false
@@ -3937,11 +3937,11 @@ module Syntax
       when String
         case keyword
         when "begin", "nil", "true", "false", "yield", "with", "abstract",
-              "def", "macro", "require", "case", "select", "if", "unless", "include",
-              "extend", "class", "struct", "module", "enum", "while", "until", "return",
-              "next", "break", "lib", "fun", "alias", "pointerof", "sizeof", "offsetof",
-              "instance_sizeof", "typeof", "private", "protected", "asm", "out",
-              "self", "in", "end"
+             "def", "macro", "require", "case", "select", "if", "unless", "include",
+             "extend", "class", "struct", "module", "enum", "while", "until", "return",
+             "next", "break", "lib", "fun", "alias", "pointerof", "sizeof", "offsetof",
+             "instance_sizeof", "typeof", "private", "protected", "asm", "out",
+             "self", "in", "end"
           true
         else
           false
@@ -4451,7 +4451,7 @@ module Syntax
     end
 
     def parse_call_args_space_consumed(check_plus_and_minus = true, allow_curly = false, control = false, end_token = :")",
-                                        allow_beginless_range = false)
+                                       allow_beginless_range = false)
       # This method is called by `parse_call_args`, so it increments once too much in this case.
       # But it is no problem, because it decrements once too much.
       @call_args_nest += 1
@@ -5485,11 +5485,11 @@ module Syntax
         next_token_skip_space_or_newline
 
         name = if top_level
-                  check_ident
-                else
-                  check IdentOrConst
-                  @token.value.to_s
-                end
+                 check_ident
+               else
+                 check IdentOrConst
+                 @token.value.to_s
+               end
 
         next_token_skip_space_or_newline
 
@@ -5660,14 +5660,14 @@ module Syntax
 
       next_token_skip_space_or_newline
       offset = case @token.type
-                when :INSTANCE_VAR
-                  InstanceVar.new(@token.value.to_s)
-                when :NUMBER
-                  raise "expecting an integer offset, not '#{@token}'", @token if @token.number_kind != :i32
-                  NumberLiteral.new(@token.value.to_s, @token.number_kind)
-                else
-                  raise "expecting an instance variable or a integer offset, not '#{@token}'", @token
-                end
+               when :INSTANCE_VAR
+                 InstanceVar.new(@token.value.to_s)
+               when :NUMBER
+                 raise "expecting an integer offset, not '#{@token}'", @token if @token.number_kind != :i32
+                 NumberLiteral.new(@token.value.to_s, @token.number_kind)
+               else
+                 raise "expecting an instance variable or a integer offset, not '#{@token}'", @token
+               end
       offset.at(@token.location)
 
       next_token_skip_space_or_newline
