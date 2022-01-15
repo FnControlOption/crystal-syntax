@@ -8,9 +8,13 @@ Upstream commits that touch [`src/compiler/crystal/syntax`](https://github.com/c
 
    `git log --reverse --oneline ae403d319..HEAD -- src/compiler/crystal/syntax spec/compiler/lexer spec/compiler/parser spec/support/syntax.cr`
 
+   Replace `ae403d319` with the last crystal-lang/crystal commit that had been applied to crystal-syntax. (You will need to search for the commit that has the same commit message.)
+
 1. Obtain the patch file of a commit by adding `.patch` to the end of the commit URL.
 
    `curl -L -o /tmp/crystal.patch https://github.com/crystal-lang/crystal/commit/9e52bc97c.patch`
+
+   Replace `9e52bc97c` with the commit to be applied.
 
 1. Update references (in the commit message only) to upstream issues and/or pull requests with the prefix `CR-`
 
@@ -20,7 +24,7 @@ Upstream commits that touch [`src/compiler/crystal/syntax`](https://github.com/c
 
 1. Replace `spec/compiler/` with `spec/` and `src/compiler/crystal/` with `src/`
 
-   Regex replace `/compiler/(crystal/)?` with `/`
+   The regex for this is `/compiler/(crystal/)?` replaced by `/`
 
 1. Apply the patch by running `git am --signoff < [path to patch]`
 
