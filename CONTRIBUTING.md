@@ -17,3 +17,8 @@ Upstream commits that touch [`src/compiler/crystal/syntax`](https://github.com/c
 
 1. Apply the patch by running `git am --signoff < [path to patch]`
     - Example: `git am --signoff < ~/Downloads/ce7bbe1.patch`
+
+### Helpful Tips
+
+- `git log --reverse --oneline <commit>..HEAD -- src/compiler/crystal/syntax spec/compiler/lexer spec/compiler/parser`
+    - `--reverse` makes old commits start at the top, i.e. commits are sorted in ascending chronological order.
