@@ -1,6 +1,6 @@
 # syntax
 
-`compiler/crystal/syntax` but as a standalone module
+[`compiler/crystal/syntax`](https://github.com/crystal-lang/crystal/tree/master/src/compiler/crystal/syntax) but as a standalone module
 
 ```yaml
 dependencies:
