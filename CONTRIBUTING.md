@@ -1,6 +1,6 @@
 ## Applying a commit from crystal-lang/crystal
 
-Upstream commits that touch [`src/compiler/crystal/syntax`](https://github.com/crystal-lang/crystal/commits/master/src/compiler/crystal/syntax), [`spec/compiler/lexer`](https://github.com/crystal-lang/crystal/commits/master/spec/compiler/lexer) [`spec/compiler/parser`](https://github.com/crystal-lang/crystal/commits/master/spec/compiler/parser), and/or [`spec/support/syntax.cr`](https://github.com/crystal-lang/crystal/blob/master/spec/support/syntax.cr) should be applied to crystal-syntax.
+Upstream commits that touch [`src/compiler/crystal/syntax`](https://github.com/crystal-lang/crystal/commits/master/src/compiler/crystal/syntax), [`spec/compiler/lexer`](https://github.com/crystal-lang/crystal/commits/master/spec/compiler/lexer) [`spec/compiler/parser`](https://github.com/crystal-lang/crystal/commits/master/spec/compiler/parser), and/or [`spec/support/syntax.cr`](https://github.com/crystal-lang/crystal/commits/master/spec/support/syntax.cr) should be applied to crystal-syntax.
 
 (Crystal's `spec/support/syntax.cr` maps to our `spec/spec_helper.cr`)
 
