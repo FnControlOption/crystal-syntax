@@ -6,9 +6,9 @@ Upstream commits that touch [`src/compiler/crystal/syntax`](https://github.com/c
 
 1. Obtain the list of missing commits by running this command in a local clone of [crystal-lang/crystal](https://github.com/crystal-lang/crystal):
 
-   `git log --reverse --oneline ae403d319..HEAD -- src/compiler/crystal/syntax spec/compiler/lexer spec/compiler/parser spec/support/syntax.cr`
+   `git log --reverse --oneline 664ceb2..HEAD -- src/compiler/crystal/syntax spec/compiler/lexer spec/compiler/parser spec/support/syntax.cr`
 
-   Replace `ae403d319` with the last crystal-lang/crystal commit that had been applied to crystal-syntax. (You will need to search for the commit that has the same commit message.)
+   `664ceb2` should be the most recent crystal-lang/crystal commit that had been applied to crystal-syntax. (You can double check by searching for the commit that has the same commit message.)
 
 1. Obtain the patch file of a commit by adding `.patch` to the end of the commit URL.
 
